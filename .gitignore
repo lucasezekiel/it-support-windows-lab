@@ -1,0 +1,17 @@
+# Imágenes y discos del laboratorio (no versionar)
+*.iso
+*.vhd
+*.vhdx
+*.avhdx
+*.vmdk
+*.ova
+
+# Protector de claves y secretos
+*KeyProtector*
+*.pfx
+*.pem
+*.key
+
+# Sistema
+Thumbs.db
+desktop.ini

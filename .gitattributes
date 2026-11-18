@@ -1,0 +1,2 @@
+# Los .ps1 se versionan byte a byte: sus SHA-256 están registrados en la bitácora.
+*.ps1 -text
