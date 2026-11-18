@@ -4,8 +4,8 @@ Laboratorio local de soporte IT corporativo sobre Windows Server 2025 y
 Windows 11 Enterprise, ejecutado en Hyper-V y documentado con evidencias
 verificables.
 
-**Estado:** en construcción. Este repositorio distingue explícitamente lo
-probado de lo pendiente.
+**Estado:** funcional y documentado al 18/11/2026. Este repositorio
+distingue explícitamente lo probado de lo que no se ejecutó.
 
 ## Objetivo
 
@@ -66,7 +66,8 @@ el **18/11/2026**.
 - [x] Zona DNS primaria y `SYSVOL` accesible.
 - [x] OU `EMPRESA` con `Usuarios`, `Grupos`, `Equipos` y `Recursos`.
 - [x] Grupos `GG_Administracion`, `GG_Ventas`, `GG_Soporte`.
-- [x] Usuarios ficticios `jperez`, `mgomez`, `dsuarez`, `crodriguez`.
+- [x] Usuarios ficticios `jperez`, `mgomez`, `dsuarez` y `crodriguez`. Después
+  se agregó `lfernandez` (alta, T09) y se deshabilitó `crodriguez` (baja, T10).
 - [x] Recurso `\\DC01\Empresa` con permisos NTFS por grupo.
 - [x] CL01 instalada con TPM virtual y Secure Boot.
 - [x] CL01 unida al dominio y ubicada en `OU=Equipos`.
@@ -96,20 +97,25 @@ el **18/11/2026**.
   cuenta deshabilitada, grupos quitados, sesiones SMB y de equipo cerradas,
   e inicio de sesión nuevo rechazado. Se documenta que una sesión abierta
   conservó el acceso a la red hasta cerrarla.
-- [x] Ocho tickets de soporte documentados con síntoma, impacto/prioridad, hipótesis,
-  diagnóstico, acción, verificación, evidencia, respuesta al usuario,
-  criterio de escalamiento y límites.
+- [x] Ocho tickets de soporte documentados con síntoma, impacto/prioridad,
+  hipótesis, diagnóstico, acción, verificación, evidencia, respuesta al
+  usuario, criterio de escalamiento y límites.
 - [x] Bloqueo efectivo de la sesión de `jperez` por inactividad, comprobado
   el 18/11/2026 (`LogonUI`/`LockApp` en la misma sesión a las 16:22:16;
   evidencia `screenlock-20261118-02`). La prueba manual de las 19:04 a las
   19:12 comprobó que al volver se exige la contraseña y se recupera la misma
   sesión (T03).
 
-## Alcance pendiente
+## No ejecutado
 
-- [ ] Revisión final de las evidencias antes de publicar. Las capturas de
-  `evidencias/` ya se revisaron una por una.
-- [ ] Publicación en GitHub (requiere autorización expresa).
+- [ ] Prueba de restauración (checkpoint o recuperación de AD). El
+  procedimiento está en `docs/recuperacion.md`, pero no se probó.
+- [ ] Reconstrucción completa desde cero siguiendo `docs/reconstruccion.md`.
+- [ ] Eliminación definitiva de cuentas (`Remove-ADUser`): la baja de T10
+  deshabilita la cuenta y no la borra.
+
+Las evaluaciones vencen el **16/02/2027** (CL01) y el **17/05/2027** (DC01).
+Después de esas fechas el laboratorio queda como documentación.
 
 ## Costos y licencias
 

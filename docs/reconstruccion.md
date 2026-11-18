@@ -245,8 +245,8 @@ La GPO y sus valores están verificados. El bloqueo efectivo es una prueba
 funcional independiente; no se deduce solo de los valores del registro. Para
 comprobarlo, dejar la sesión de `jperez` más de cinco minutos sin
 interacción y verificar que aparezcan `LogonUI` y `LockApp` en esa sesión.
-Se hizo así el 18/11/2026; la exigencia de contraseña al volver está
-pendiente.
+Se hizo así el 18/11/2026. Ese mismo día, una prueba manual comprobó que al
+volver se exige la contraseña (T03).
 
 ## 9. CL01: creación, instalación y unión
 
